@@ -1,0 +1,4 @@
+onnx==1.6
+tf2onnx==1.6.1
+numpy
+pycuda
