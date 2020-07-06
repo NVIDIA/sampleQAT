@@ -43,7 +43,7 @@ Dependencies required for this sample
 
 3. TensorRT-7.1
 
-4. ONNX-Graphsurgeon-0.2.1
+4. <a href="https://github.com/NVIDIA/TensorRT/tree/master/tools/onnx-graphsurgeon#installation">ONNX-Graphsurgeon</a>
 
 ## Running the sample
 
@@ -169,7 +169,7 @@ June 2020: Initial release of this sample
 
 # Known issues
 
-There are no known issues in this sample
+Tensorflow operation `tf.quantization.quantize_and_dequantize` is used for quantization during training. The gradient of this operation is not clipped based on input range.
 
 # License
 
