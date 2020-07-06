@@ -173,5 +173,5 @@ Tensorflow operation `tf.quantization.quantize_and_dequantize` is used for quant
 
 # License
 
-The sampleRN50qat license can be found in the LICENSE file.
+The sampleQAT license can be found in the LICENSE file.
 
