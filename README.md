@@ -51,7 +51,7 @@ Dependencies required for this sample
 
 ### Step 1: Quantization Aware Training
 
-Please follow detailed instructions on how to <a href="https://github.com/peri044/DeepLearningExamples/tree/rn50_qat_v2/TensorFlow/Classification/ConvNets/resnet50v1.5#quantization-aware-training">finetune a RN50 model using QAT</a>. 
+Please follow detailed instructions on how to <a href="https://github.com/NVIDIA/DeepLearningExamples/tree/master/TensorFlow/Classification/ConvNets/resnet50v1.5#quantization-aware-training">finetune a RN50 model using QAT</a>. 
 
 This stage involoves 
 
@@ -61,7 +61,7 @@ This stage involoves
 ### Step 2: Export frozen graph of RN50 QAT
 
 Export the RN50 QAT graph replacing the final FC layer with a 1x1 conv layer. 
-Please follow these <a href="https://github.com/peri044/DeepLearningExamples/tree/rn50_qat_v2/TensorFlow/Classification/ConvNets/resnet50v1.5#exporting-frozen-graphs">instructions</a> to generate a frozen graph in desired data formats.
+Please follow these <a href="https://github.com/NVIDIA/DeepLearningExamples/tree/master/TensorFlow/Classification/ConvNets/resnet50v1.5#exporting-frozen-graphs">instructions</a> to generate a frozen graph in desired data formats.
 
 ### Step 3: Constant folding
 
