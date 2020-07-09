@@ -19,7 +19,7 @@
 
 ## Description
 
-This sample demonstrates worflow for training and inference of Resnet-50 model trained using Quantization Aware Training.
+This sample demonstrates workflow for training and inference of Resnet-50 model trained using Quantization Aware Training.
 The inference implementation is experimental prototype and is provided with no guarantee of support.
 
 ## How does this sample work?
@@ -43,7 +43,7 @@ Dependencies required for this sample
 
 3. TensorRT-7.1
 
-4. <a href="https://github.com/NVIDIA/TensorRT/tree/master/tools/onnx-graphsurgeon#installation">ONNX-Graphsurgeon</a>
+4. <a href="https://github.com/NVIDIA/TensorRT/tree/release/7.1/tools/onnx-graphsurgeon">ONNX-Graphsurgeon 0.2.1</a>
 
 ## Running the sample
 
@@ -55,7 +55,7 @@ Please follow detailed instructions on how to <a href="https://github.com/NVIDIA
 
 This stage involoves 
 
-* Finetuning a RN50 model with quantization nodes and save the final checkpoint.
+* Finetune a RN50 model with quantization nodes and save the final checkpoint.
 * Post process the above RN50 QAT checkpoint by reshaping the weights of final FC layer into a 1x1 conv layer.
 
 ### Step 2: Export frozen graph of RN50 QAT
