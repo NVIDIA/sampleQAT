@@ -73,33 +73,29 @@ def preprocess_network(network):
     dequant_scale = np.array([127.0/1.0], dtype=np.float32)
     # Zero point is always zero for quantization in TensorRT.
     zeros = np.zeros(shape=(1, ), dtype=np.float32)
-    def add_input_qdq():
-        for i in range(network.num_inputs):
-            inp = network.get_input(i)
-            # Find layer consuming input tensor
-            found = False
-            for layer in network:
-                if found:
-                    break;
+ 
+    for i in range(network.num_inputs):
+        inp = network.get_input(i)
+        # Find layer consuming input tensor
+        found = False
+        for layer in network:
+            if found:
+                break;
 
-                for k in range(layer.num_inputs):
-                    if (inp == layer.get_input(k)):
-                        mode = trt.ScaleMode.UNIFORM
-                        quantize = network.add_scale(inp, mode, scale=quant_scale, shift=zeros)
-                        quantize.set_output_type(0, trt.int8)
-                        quantize.name = "InputQuantizeNode"
-                        quantize.get_output(0).name = "QuantizedInput"
-                        dequantize = network.add_scale(quantize.get_output(0), mode, scale=dequant_scale, shift=zeros)
-                        dequantize.set_output_type(0, trt.float32)
-                        dequantize.name = "InputDequantizeNode"
-                        dequantize.get_output(0).name = "DequantizedInput"
-                        layer.set_input(k, dequantize.get_output(0))
-                        found = True
-                        break
-
-    add_input_qdq()
-
-    network.mark_output(network.get_input(0))
+            for k in range(layer.num_inputs):
+                if (inp == layer.get_input(k)):
+                    mode = trt.ScaleMode.UNIFORM
+                    quantize = network.add_scale(inp, mode, scale=quant_scale, shift=zeros)
+                    quantize.set_output_type(0, trt.int8)
+                    quantize.name = "InputQuantizeNode"
+                    quantize.get_output(0).name = "QuantizedInput"
+                    dequantize = network.add_scale(quantize.get_output(0), mode, scale=dequant_scale, shift=zeros)
+                    dequantize.set_output_type(0, trt.float32)
+                    dequantize.name = "InputDequantizeNode"
+                    dequantize.get_output(0).name = "DequantizedInput"
+                    layer.set_input(k, dequantize.get_output(0))
+                    found = True
+                    break
 
 def build_engine_onnx(model_file, verbose=False):
     """

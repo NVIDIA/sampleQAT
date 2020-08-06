@@ -113,15 +113,6 @@ Arguments:
 * `--engine` : Output file name of TensorRT engine.
 * `--verbose` : Flag to enable verbose logging
 
-Sample output log of this step is as follows. `ERROR: Tensor input:0 cannot be both input and output` can be ignored during TensorRT engine generation.
-```
-[TensorRT] ERROR: Tensor input:0 cannot be both input and output
-[TensorRT] INFO: [EXPLICIT_PRECISION] Setting tensor scales of all tensors of explicit precision network to 1.0f
-[TensorRT] WARNING: No implementation of layer InputQuantizeNode obeys the requested constraints in strict mode. No conforming implementation was found i.e. requested layer computation precision and output precision types are ignored, using the fastest implementation.
-[TensorRT] INFO: Some tactics do not have sufficient workspace memory to run. Increasing workspace size may increase performance, please check verbose output.
-[TensorRT] INFO: Detected 1 inputs and 1 output network tensors.
-```
-
 ### Step 7: TensorRT Inference
 
 Command to run inference on a sample image
