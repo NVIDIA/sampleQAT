@@ -45,7 +45,7 @@ def build_profile(builder, network, profile_shapes, default_shape_value=1):
             shapes = get_profile_shape(inp.name)
             if not shapes:
                 rank = inp.shape[0]
-                shapes = [(DEFAULT_SHAPE_VALUE, ) * rank] * 3
+                shapes = [(default_shape_value, ) * rank] * 3
                 print("Setting shape input to {:}. If this is incorrect, for shape input: {:}, please provide tuples for min, opt, and max shapes containing {:} elements".format(shapes[0], inp.name, rank))
             min, opt, max = shapes
             profile.set_shape_input(inp.name, min, opt, max)
