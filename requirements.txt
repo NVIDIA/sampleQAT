@@ -1,4 +1,4 @@
-onnx==1.6
+onnx==1.13.0
 tf2onnx==1.6.1
 numpy
 pycuda
